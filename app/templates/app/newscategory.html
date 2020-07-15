@@ -1,0 +1,121 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load humanize %}
+
+{% block content %}
+{% include 'menu.html' %}
+<div class="container">
+
+    <section id="content">	
+                
+        <!-- Page Heading -->
+        <section class="section page-heading animate-onscroll">
+            
+            <h1>{{newscategory.name}}</h1>
+            <p class="breadcrumb"><a href="{% url 'index' %}">Home</a> / {{newscategory.name}} </p>
+            
+        </section>
+        <!-- Page Heading -->
+        
+
+        
+        <!-- Section -->
+        <section class="section full-width-bg gray-bg">
+            
+            <div class="row">
+            
+                <div class="col-lg-12 col-md-12 col-sm-12">
+                    
+                    <div class="media-items row">
+                        {% for posts in post %}
+
+                        <div class="col-lg-4 col-md-4 col-sm-6 mix category-photos" data-nameorder="1" data-dateorder="3">
+                        
+                                                                                    <!-- Media Item -->
+                        <div class="media-item animate-onscroll ">
+                            
+
+                            <div class="media-image">
+                            
+                                <img src="{{posts.image.url}}" alt="" style="height: 250px;">
+                                
+                                <div class="media-hover">
+                                    <div class="media-icons">
+                                        <a href="{{posts.image.url}}" data-group="media-jackbox" data-thumbnail="{% static 'img/media/media1.jpg' %}" class="jackbox media-icon"><i class="icons icon-zoom-in"></i></a>
+                                        <a href="{% url 'newsdetails' posts.pk %}" class="media-icon"><i class="icons icon-link"></i></a>
+                                    </div>
+                                </div>
+                            
+                            </div>
+                            
+                                                            
+                            <div class="media-info">
+                            
+                                <div class="media-header">
+                                    
+                                
+                                    <div class="media-caption" style="margin:20px 0 0; padding-left: 0px;">
+                                        <h4 style="margin:20px 0 0;"><a href="{% url 'newsdetails' posts.pk %}">{{posts.title}}</a></h4>
+                                        <span class="tags" style="font-size: 11px;"><a><span class="day"><i class="icons icon-calendar"></i></span>{{posts.category.name}}</a>, <a href="#"><span class="day"><i class="icons icon-clock"></i></span>{{posts.created_at}}</a>, <a href="#"><span class="day"><i class="icons icon-user"></i></span>{{posts.user.get_full_name}}</a></span>
+                                    </div>
+                                    
+                                </div>
+                                
+                                <div class="media-description">
+                                    <p style="text-align: justify;">{{posts.content|safe|truncatewords:15}}</p>
+                                </div>
+                                
+                                <div class="media-button">
+                                    <a href="{% url 'newsdetails' posts.pk %}" class="button big button-block button-arrow" style="text-align: center;">Read More</a>
+                                </div>
+                            
+                            </div>
+                            
+                                                            
+                        </div>
+                        <!-- /Media Item -->							
+                        </div>
+
+                        {% endfor %}
+
+                        
+                    </div>
+                    
+                    <div class="animate-onscroll">
+                    
+                        <div class="divider"></div>
+                        
+                        <div class="numeric-pagination">
+                            {% if post.has_previous %}
+                            <a href="?page={{ post.previous_page_number }}" class="button"><i class="icons icon-left-dir"></i></a>
+                            {% endif %}
+
+                            {% for i in post.paginator.page_range %}
+                                {% if post.number == i %}
+                            <a href="?page={{ i }}" class="button active-button">{{ i }}</a>
+                                {% else %}
+                            <a href="?page={{ i }}" class="button">{{ i }}</a>
+                                {% endif %}
+                            {% endfor %}
+
+                            {% if post.has_next %}
+                            <a href="?page={{ post.next_page_number }}" class="button"><i class="icons icon-right-dir"></i></a>
+                            {% endif %}
+
+                        </div>
+                    </div>
+                    
+                    
+                </div>
+                
+                
+            
+            </div>
+            
+        </section>
+        <!-- /Section -->
+
+    </section>
+</div>
+{% endblock content %}
+

@@ -1,0 +1,127 @@
+{% load static %}
+			<div class="inner-wrapper">
+				<!-- start: sidebar -->
+				<aside id="sidebar-left" class="sidebar-left">
+				
+				    <div class="sidebar-header">
+				        <div class="sidebar-title">
+				            Navigation
+				        </div>
+				        <div class="sidebar-toggle d-none d-md-block" data-toggle-class="sidebar-left-collapsed" data-target="html" data-fire-event="sidebar-left-toggle">
+				            <i class="fas fa-bars" aria-label="Toggle sidebar"></i>
+				        </div>
+				    </div>
+				
+				    <div class="nano">
+				        <div class="nano-content">
+				            <nav id="menu" class="nav-main" role="navigation">
+				            
+				                <ul class="nav nav-main">
+				                    <li class="mb-4">
+				                        <a class="nav-link" href="{% url 'dashboard' %}">
+				                            <i class="fas fa-home" aria-hidden="true"></i>
+				                            <span>Dashboard</span>
+				                        </a>                        
+				                    </li>
+				                    <li class="nav-parent nav-active mb-4">
+				                        <a class="nav-link" href="#">
+				                            <i class="fas fa-columns" aria-hidden="true"></i>
+				                            <span>Blog</span>
+				                        </a>
+				                        <ul class="nav nav-children">
+				                            <li>
+				                                <a class="nav-link" href="{% url 'addpost'%}">
+				                                    Add Report / Post Blog
+				                                </a>
+				                            </li>
+				                            <li>
+				                                <a class="nav-link" href="{% url 'viewpost' %}">
+				                                    My Posts
+				                                </a>
+				                            </li>
+										</ul>
+									</li>				            
+				                    <li class=" nav-active mb-4">
+				                        <a class="nav-link" href="{% url 'editprofile' request.user.reporterprofile.id %}">
+				                            <i class="fas fa-copy" aria-hidden="true"></i>
+				                            <span>Edit Profile</span>
+				                        </a>				                    
+				                    </li>
+									
+				                    <li class="nav-parent nav-active mb-4">
+				                        <a class="nav-link" href="#">
+				                            <i class="fas fa-tasks" aria-hidden="true"></i>
+				                            <span>Social Media</span>
+				                        </a>
+				                        <ul class="nav nav-children">
+				                            <li>
+				                                <a class="nav-link" href="{% url 'addsocialmedia' %}">
+				                                    Add Social Media
+				                                </a>
+				                            </li>				                        
+				                            <li>
+				                                <a class="nav-link" href="{% url 'viewsocialmedia' %}">
+				                                    My Social Media
+				                                </a>
+				                            </li>				                            
+				                        </ul>
+				                    </li>
+				                    <li class="nav-active mb-4">
+				                        <a class="nav-link" href="{% url 'userdetails' %}">
+				                            <i class="fas fa-list-alt" aria-hidden="true"></i>
+				                            <span>Settings</span>
+				                        </a>				                        
+				                    </li>
+				                    <li class="nav-active mb-4">
+				                        <a class="nav-link" href="{% url 'password' %}">
+				                            <i class="fas fa-table" aria-hidden="true"></i>
+				                            <span>Change Password</span>
+				                        </a>
+				                    </li>
+				                    <li class="nav-parent nav-active mb-4">
+				                        <a class="nav-link" href="#">
+				                            <i class="fas fa-envelope" aria-hidden="true"></i>
+				                            <span>Messages</span>
+				                        </a>  
+
+										<ul class="nav nav-children">
+				                            <li>
+				                                <a class="nav-link" href="{% url 'sendmessage' %}">
+				                                    Send Message
+				                                </a>
+				                            </li>				                        
+				                            <li>
+				                                <a class="nav-link" href="{% url 'viewmessage' %}">
+				                                    View Sent Messages
+				                                </a>
+				                            </li>	
+											<li>
+				                                <a class="nav-link" href="receivedmessage">
+				                                    Received Messages
+				                                </a>
+				                            </li>			                            
+				                        </ul>                      
+				                    </li>
+				                </ul>
+				            </nav>
+				
+				        
+				
+				        <script>
+				            // Maintain Scroll Position
+				            if (typeof localStorage !== 'undefined') {
+				                if (localStorage.getItem('sidebar-left-position') !== null) {
+				                    var initialPosition = localStorage.getItem('sidebar-left-position'),
+				                        sidebarLeft = document.querySelector('#sidebar-left .nano-content');
+				                    
+				                    sidebarLeft.scrollTop = initialPosition;
+				                }
+				            }
+				        </script>
+				        
+				
+				    </div>
+				
+				</aside>
+				<!-- end: sidebar -->
+				

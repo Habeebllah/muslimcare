@@ -1,0 +1,102 @@
+{% extends 'logbase.html' %}
+{% load static %}
+{% load humanize %}
+{% block content %}
+{% include 'header.html' %}
+{% include 'sidebar.html' %}
+
+	<section role="main" class="content-body">
+					<header class="page-header">
+						<h2>VIEW MESSAGES</h2>
+					
+						<div class="right-wrapper text-right">
+							<ol class="breadcrumbs">
+								<li>
+									<a href="{% url 'dashboard' %}">
+										<i class="fas fa-home"></i>
+									</a>
+								</li>
+								<li><span>My Messages</span></li>
+							</ol>
+					
+							<a class="sidebar-right-toggle" data-open="sidebar-right"><i class="fas fa-chevron-left"></i></a>
+						</div>
+					</header>
+
+					<!-- start: page -->
+						<div class="row">
+							<div class="col">
+								<section class="card">
+									<header class="card-header">
+										<div class="card-actions">
+											<a href="#" class="card-action card-action-toggle" data-card-toggle></a>
+											<a href="#" class="card-action card-action-dismiss" data-card-dismiss></a>
+										</div>
+						
+										<h2 class="card-title">VIEW MESSAGES</h2>
+									</header>
+									<div class="card-body">
+									
+									{% include 'messages.html' %}
+
+										<table class="table table-bordered table-striped mb-0" id="datatable-default">
+											<thead>
+												<tr>
+													<th>Subject</th>
+													<th>Content</th>
+													<th>Action(s)</th>
+												</tr>
+											</thead>
+											<tbody>
+											{% for m in message  %}
+												<tr>
+													<td>{{ m.subject|truncatewords:4}}</td>
+													<td>{{ m.content|truncatewords:15 }}</td>
+													<td>
+
+													<a href="{% url 'updatemessage' m.id %}"><button type="submit" class="mb-1 mt-1 mr-1 btn btn-primary">Details</button></a>
+													{% comment %} <a href="{% url 'deletesocialmedia' p.id %}"><button type="submit" class="mb-1 mt-1 mr-1 btn btn-primary">Delete</button></a> {% endcomment %}
+
+													<a href="#myModal" class="trigger-btn" data-toggle="modal" >
+														<button class="mb-1 mt-1 mr-1 btn btn-danger" type="submit" name="action">Delete</button>
+													</a>
+													<!-- Modal HTML -->
+													<div id="myModal" class="modal fade">
+														<div class="modal-dialog modal-confirm">
+															<div class="modal-content">
+																<div class="modal-header">
+																	<h4 class="modal-title" style="font-family: Lucida Fax; font-size: 20px;">Confirm Delete</h4>
+																	<div class="icon-box">
+																		<i class="large material-icons mt-3">delete_forever</i>
+																	</div>
+																	<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+																																	
+																</div>
+
+																<div class="modal-footer">
+																	<button type="button" class="btn btn-primary" data-dismiss="modal"><strong>Cancel</strong></button>
+																	<a href="{% url 'deletemessage' m.id %}">
+																		<button type="button" class="btn btn-danger"><strong>Delete</strong></button>
+																	</a>
+																</div>
+															</div>
+														</div>
+													</div>
+													</td>
+													
+												</tr>
+
+											{% endfor %}
+											
+											</tbody>
+										</table>
+									</div>
+								</section>
+							</div>
+						</div>
+						
+					<!-- end: page -->
+				</section>
+			</div>
+
+{% endblock content %}

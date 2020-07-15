@@ -1,0 +1,144 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% load humanize %}
+
+{% block content %}
+{% include 'menu.html' %}
+<div class="container">
+    <section id="content">	
+			
+        <!-- Page Heading -->
+        <section class="section page-heading animate-onscroll">
+            
+            <h1>{{activity.title}}</h1>
+            <p class="breadcrumb"><a href="{% url 'index' %}">Home</a> / {{activity.headline }}</p>
+            
+        </section>
+        <!-- Page Heading -->
+        
+
+        
+        <!-- Section -->
+        <section class="section full-width-bg gray-bg">
+            
+            <div class="row">
+            
+                <div class="col-lg-9 col-md-9 col-sm-8">
+                    
+                    <!-- Single Blog Post -->
+                    <div class="blog-post-single">
+                        
+                        <!-- Portfolio Slideshow -->
+                        <div class="portfolio-slideshow flexslider animate-onscroll">
+                            
+                            <ul class="slides">
+                            
+                                <li><img src="{{activity.image.url}}" alt=""></li>												
+                            </ul>
+                            
+                        </div>
+                        <!-- /Portfolio Slideshow -->
+                        
+                       
+                        
+                        <div class="post-content">
+                            
+                            <p class="animate-onscroll">{{activity.content|safe}}</p>
+                            
+                        </div>
+                        
+                     
+                        
+                  
+                    </div>	
+                    <!-- /Single Blog Post -->	
+                        
+              
+               
+                </div>
+                
+                
+                
+                <!-- Sidebar -->
+            <div class="col-lg-3 col-md-3 col-sm-4 sidebar">
+                {% for service in services %}
+                <div class="banner-wrapper">
+                    <a class="banner animate-onscroll">
+                        <h4 style="text-align: center; width: 100%; margin-left: -20px;">{{service.title}}</h4>
+                        <p style="text-align: justify; width: 100%; margin-left: -20px;">{{service.content}}</p>
+                    </a>
+                </div>
+                {% endfor %}
+                
+               						
+                <!-- /Featured Video -->						<!-- Upcoming Events -->
+                <div class="sidebar-box white animate-onscroll">
+                    <h3>Upcoming Events</h3>
+                    <ul class="upcoming-events">
+                    {% for events in event %}
+                        <!-- Event -->
+                        <li>
+                            <div class="date">
+                                <span>
+                                    <span class="day"><i class="icons icon-calendar"></i></span>
+                                    <span class="day"><i class="icons icon-clock"></i></span>
+                                </span>
+                            </div>
+                            
+                            <div class="event-content">
+                                <h6><a href="{% url 'eventdetails' events.pk %}">{{events.event_theme}}</a></h6>
+                                <ul class="event-meta">
+                                    <li><i class="icons icon-clock"></i> {{events.date_and_time_of_event}}</li>
+                                    <li><i class="icons icon-location"></i> {{events.venue }}</li>
+                                </ul>
+                            </div>
+                        </li>
+                        <!-- /Event -->
+                        
+                    {% endfor %}
+                    </ul>
+                    <a href="{% url 'viewevents' %}" class="button transparent button-arrow">More events</a>
+                </div>
+                <!-- /Upcoming Events -->						<!-- Image Banner -->
+               					<!-- Popular News -->
+                <div class="sidebar-box white animate-onscroll">
+                    <h3>Popular news</h3>
+                    <ul class="popular-news">
+                    {% for news in popular_news %}
+                        <!-- Blog Item -->
+                        <li>
+                            <div class="thumbnail">
+                                <img src="{{news.image.url}}" alt="">
+                            </div>
+                            
+                            <div class="post-content">
+                                <h6><a href="{% url 'newsdetails' news.id %}">{{news.title|truncatewords:4}}</a></h6>
+                                <div class="post-meta">
+                                    <span>by <a href="{% url 'newsdetails' news.id %}"><i class="icons icon-user"></i>{{news.user.get_full_name}}</a></span>
+                                    <span><i class="icons icon-clock"></i>{{news.created_at |naturaltime}}</span>
+                                </div>
+                            </div>
+                        </li>
+                        <!-- /Blog Item -->
+                    {% endfor %}   
+                        
+                    </ul>
+                    
+                </div>
+                <!-- /Popular News -->						
+            </div>
+            <!-- /Sidebar -->
+                
+                
+                
+            
+            </div>
+            
+        </section>
+        <!-- /Section -->
+    
+    </section>
+
+</div>
+{% endblock content %}

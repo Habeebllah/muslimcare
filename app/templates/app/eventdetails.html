@@ -1,0 +1,140 @@
+{% extends 'base.html' %}
+{% block title %}{{events.event_theme}}{% endblock title %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% load humanize %}
+
+{% block content %}
+{% include 'menu.html' %}
+<div class="container">
+    <section id="content">
+                
+ 
+<!-- Page Heading -->
+<section class="section page-heading animate-onscroll">
+            
+    <h1>Event Details</h1>
+    <h1 class="breadcrumb"><a href="{% url 'index' %}">Home</a> / {{events.event_theme}}</h1>
+    
+</section>
+<!-- Page Heading -->
+<!-- Section -->
+        <section class="section full-width-bg gray-bg">
+            
+            <div class="row">
+            
+                <div class="col-lg-12 col-md-12 col-sm-12">
+                    
+                    <!-- Event Single -->
+                    <div class="event-single">
+                        
+                        <div class="row">
+                            
+                            <div class="col-lg-6 col-md-6 col-sm-5 animate-onscroll">
+                                
+                                <div class="event-image">
+                                    <img src="{{events.image.url}}" alt="">
+                                </div>
+                                
+                                
+                                
+                            </div>
+                            
+                            <div class="col-lg-6 col-md-6 col-sm-7">
+                                
+                                <!-- Event Meta -->
+                                <div class="event-meta">
+                                    
+                                    <div class="event-meta-block animate-onscroll">
+                                        
+                                        <i class="icons icon-calendar"></i>
+                                        <p class="title">Event Date</p>
+                                        <p>{{events.date_and_time_of_event }}</p>
+                                        
+                                    </div>
+                                    
+                                    <div class="event-meta-block animate-onscroll">
+                                        
+                                        <i class="icons icon-clock"></i>
+                                        <p class="title">Event Time</p>
+                                        <p>{{events.date_and_time_of_event | naturaltime}}</p>
+                                        
+                                    </div>
+                                    
+                                    <div class="event-meta-block animate-onscroll">
+                                        
+                                        <i class="icons icon-location"></i>
+                                        <p class="title">Event Location</p>
+                                        <p>{{events.venue}}</p>
+                                        
+                                    </div>
+                                    
+                                    <div class="event-meta-block animate-onscroll">
+											
+                                        <i class="icons icon-ticket"></i>
+                                        <p class="title">Duration</p>
+                                        <p>{{events.duration}}</p>
+                                        
+                                    </div>
+                                  
+                                    
+                                    <div class="event-meta-block animate-onscroll">
+                                        
+                                        <i class="icons icon-user"></i>
+                                        <p class="title">Organizer</p>
+                                        <p>{{events.organization}}</p>
+                                        
+                                    </div>
+                                    
+                                    <div class="event-meta-block animate-onscroll">
+                                        
+                                        <i class="icons icon-phone"></i>
+                                        <p class="title">Phone</p>
+                                        <p>{{events.phone_number}}</p>
+                                        
+                                    </div>
+                                    
+                                    <div class="event-meta-block animate-onscroll">
+                                        
+                                        <i class="icons icon-mail-alt"></i>
+                                        <p class="title">Email</p>
+                                        <p><a >{{events.email}}</a></p>
+                                        
+                                    </div>
+                                    
+                                    <div class="addthis_inline_share_toolbox"></div>
+
+                                    
+                                    
+                                </div>
+                                <!-- /Event Meta -->
+                                
+                            </div>
+                            
+                        </div>
+                    
+                        <h6>Description</h6>
+                                
+                        <p>{{events.event_description}}</p>
+                    
+                    </div>
+                    <!-- /Event Single -->
+                    
+
+                    
+                </div>
+                
+                
+                
+            
+            </div>
+            
+        </section>
+        <!-- /Section -->
+        
+    <section>
+
+</div>
+
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5efc4654858473aa"></script>
+{% endblock content %}

@@ -1,0 +1,102 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% load humanize %}
+
+{% block content %}
+{% include 'menu.html' %}
+<div class="container">
+    <section id="content">
+                
+                
+        <!-- Page Heading -->
+        <section class="section page-heading animate-onscroll">
+            
+            <h1>Events</h1>
+            <p class="breadcrumb"><a href="{% url 'index' %}">Home</a> / Events</p>
+            
+        </section>
+        <!-- Page Heading -->
+        
+       
+        
+        
+        
+        <!-- Related Events -->
+        <section class="section full-width-bg">
+            
+            <div class="row related-events">
+                
+              
+            
+                
+                {% for event in events %}
+                <div class="col-lg-4 col-md-4 col-sm-4 animate-onscroll">
+                    
+                    <!-- Event Item -->
+                    <div class="event-item">
+                        
+                        <div class="event-image">
+                            <img src="{{event.image.url}}" alt="" style="height: 450px;">
+                        </div>
+                        
+                        <div class="event-info">
+                        
+                            <div class="date">
+                                <span>
+                                    <span class="day"><i class="icons icon-calendar"></i></span>
+                                    <span class="day"><i class="icons icon-clock"></i></span>
+                                </span>
+                            </div>
+                            
+                            <div class="event-content">
+                                <h6><a href="{% url 'eventdetails' event.pk %}">{{event.event_theme}}</a></h6>
+                                <ul class="event-meta">
+                                    <li><i class="icons icon-clock"></i> {{event.date_and_time_of_event}}</li>
+                                    <li><i class="icons icon-location"></i> {{event.venue }}</li>
+                                </ul>
+                            </div>
+                        
+                        </div>
+
+                    </div>
+                    <!-- /Event Item -->
+                    
+                </div>
+                {% endfor %}
+              
+
+            </div>
+            <div class="animate-onscroll">
+                    
+                        <div class="divider"></div>
+                        
+                        <div class="numeric-pagination">
+                            {% if events.has_previous %}
+                            <a href="?page={{ events.previous_page_number }}" class="button"><i class="icons icon-left-dir"></i></a>
+                            {% endif %}
+
+                            {% for i in events.paginator.page_range %}
+                                {% if events.number == i %}
+                            <a href="?page={{ i }}" class="button active-button">{{ i }}</a>
+                                {% else %}
+                            <a href="?page={{ i }}" class="button">{{ i }}</a>
+                                {% endif %}
+                            {% endfor %}
+
+                            {% if events.has_next %}
+                            <a href="?page={{ events.next_page_number }}" class="button"><i class="icons icon-right-dir"></i></a>
+                            {% endif %}
+
+                        </div>
+                    
+                    </div>
+                   
+        </section>
+        <!-- /Related Events -->
+        
+
+    </section>
+</div>
+{% endblock content %}
+

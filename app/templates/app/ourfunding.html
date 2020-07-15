@@ -1,0 +1,100 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+{% include 'menu.html' %}
+<div class="container">
+    <section id="content">	
+			
+        <!-- Page Heading -->
+        <section class="section page-heading animate-onscroll">
+            
+            <h1>Our Funding</h1>
+            <p class="breadcrumb"><a href="{% url 'index' %}">Home</a> / Our Funding </p>
+            
+        </section>
+        <!-- Page Heading -->
+        
+
+        
+        <!-- Section -->
+        <section class="section full-width-bg gray-bg">
+            
+            <div class="row">
+            
+                <div class="col-lg-12 col-md-12 col-sm-12">
+                    
+                    <!-- Portfolio Single -->
+                    <div class="portfolio-single">
+                        
+                        <div class="portfolio-video animate-onscroll">
+                            <img src="{% static 'app/img/about.jpg' %}" width="1100" height="600">
+                        </div>
+                        
+                        <div class="row">
+                            
+                            <div class="col-lg-4 col-md-4 col-sm-6 animate-onscroll">
+                                
+                                <h6>Details</h6>
+                                
+                                <table class="project-details">
+                                    
+                                    <tr>
+                                        <td>Email:</td>
+                                        <td>benefactors@muslimcare.org.ng</td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>Email:</td>
+                                        <td>support@muslimcare.org.ng</td>
+                                    </tr>
+                                    
+                                   
+                                    <tr>
+                                        <td>Share this:</td>
+                                        <td>
+                                            <ul class="social-share">
+                                                <li class="facebook"><a href="#" class="tooltip-ontop" title="Facebook"><i class="icons icon-facebook"></i></a></li>
+                                                <li class="twitter"><a href="#" class="tooltip-ontop" title="Twitter"><i class="icons icon-twitter"></i></a></li>
+                                                <li class="google"><a href="#" class="tooltip-ontop" title="Google Plus"><i class="icons icon-gplus"></i></a></li>
+                                                <li class="pinterest"><a href="#" class="tooltip-ontop" title="Pinterest"><i class="icons icon-pinterest-3"></i></a></li>
+                                                <li class="email"><a href="#" class="tooltip-ontop" title="Email"><i class="icons icon-mail"></i></a></li>
+                                            </ul>
+                                        </td>
+                                    </tr>
+                                    
+                                </table>
+                                
+                            </div>
+                            
+                            <div class="col-lg-8 col-md-8 col-sm-6 animate-onscroll">
+                                
+                                <h6>Description</h6>
+                                
+                                <p style="line-height: 40px; text-align: justify;">Muslim Care Centre benefits from a diversity of philanthropic and membership support. Staff and its Council uphold the principles of integrity, objectivity and accountability in accepting any funds critical to the independence of the Centre. This approach ensures that all of our activities contribute to the centre’s mission and public benefit obligation.</p>
+                                <p style="line-height: 40px; text-align: justify;">We treat our donor information seriously. If you have a general advice or query regarding our funding, please email us.</p>
+
+                            
+                            </div>
+                        
+                        </div>
+                        
+                    
+                    </div>
+                    <!-- /Portfolio Single -->
+                    
+        
+                </div>
+                
+                
+                
+            
+            </div>
+            
+        </section>
+        <!-- /Section -->
+    
+    </section>
+
+</div>
+{% endblock content %}

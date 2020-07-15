@@ -1,0 +1,141 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+{% include 'menu.html' %}
+<div class="container">
+    <section id="content">	
+			
+        <!-- Page Heading -->
+        <section class="section page-heading animate-onscroll">
+            
+            <h1>Our Project</h1>
+            <p class="breadcrumb"><a href="{% url 'index' %}">Home</a> / Our Project</p>
+            
+        </section>
+        <!-- Page Heading -->
+        
+
+        
+        <!-- Section -->
+        <section class="section full-width-bg gray-bg">
+            
+            <div class="row">
+            
+                <div class="col-lg-12 col-md-12 col-sm-12">
+                    
+                    <!-- Portfolio Single -->
+                    <div class="portfolio-single">
+                        
+                        <div class="portfolio-video animate-onscroll">
+                            <iframe src="//player.vimeo.com/video/51234218" width="1100" height="600"></iframe>
+                        </div>
+                        
+                        <div class="row">
+                            
+                            <div class="col-lg-4 col-md-4 col-sm-6 animate-onscroll">
+                                
+                                <h6>Project Details</h6>
+                                
+                                <table class="project-details">
+                                    
+                                    <tr>
+                                        <td>Date:</td>
+                                        <td>December 15, 2013</td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>Category:</td>
+                                        <td><a href="#">Politics</a>, <a href="#">Photos</a></td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>Author:</td>
+                                        <td><a href="#">admin</a></td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>Skills:</td>
+                                        <td><a href="#">Photoshop</a>, <a href="#">Illustrator</a></td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>Comments:</td>
+                                        <td><a href="#">4</a></td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>Tags:</td>
+                                        <td><a href="#">meeting</a>, <a href="#">politics</a>, <a href="#">photos</a></td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>Project URL:</td>
+                                        <td><a href="#" class="button transparent button-arrow">View Project</a></td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>Share this:</td>
+                                        <td>
+                                            <ul class="social-share">
+                                                <li class="facebook"><a href="#" class="tooltip-ontop" title="Facebook"><i class="icons icon-facebook"></i></a></li>
+                                                <li class="twitter"><a href="#" class="tooltip-ontop" title="Twitter"><i class="icons icon-twitter"></i></a></li>
+                                                <li class="google"><a href="#" class="tooltip-ontop" title="Google Plus"><i class="icons icon-gplus"></i></a></li>
+                                                <li class="pinterest"><a href="#" class="tooltip-ontop" title="Pinterest"><i class="icons icon-pinterest-3"></i></a></li>
+                                                <li class="email"><a href="#" class="tooltip-ontop" title="Email"><i class="icons icon-mail"></i></a></li>
+                                            </ul>
+                                        </td>
+                                    </tr>
+                                    
+                                </table>
+                                
+                            </div>
+                            
+                            <div class="col-lg-8 col-md-8 col-sm-6 animate-onscroll">
+                                
+                                <h6>Description</h6>
+                                
+                                <p>Ut tellus dolor, dapibus eget, elementum vel, cursus eleifend, elit. Aenean auctor wisi et urna. Aliquam erat volutpat. Duis ac turpis. Integer rutrum ante eu lacus.</p>
+                                <p>Vestibulum libero nisl, porta vel, scelerisque eget, malesuada at, neque. Vivamus eget nibh. Etiam cursus leo vel metus. Nulla facilisi. Aenean nec eros. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae;</p>
+                                <p>Suspendisse sollicitudin velit sed leo. Ut pharetra augue nec augue. Nam elit agna, endrerit sit amet, tincidunt ac, viverra sed, nulla. Donec porta diam eu massa. Quisque diam lorem, interdum vitae,dapibus ac, scelerisque vitae, pede. </p>
+                                
+                            </div>
+                        
+                        </div>
+                        
+                    
+                    </div>
+                    <!-- /Portfolio Single -->
+                    
+                    
+                    <div class="row portfolio-pagination">
+                        
+                        <div class="col-lg-4 col-md-4 col-sm-4 align-left animate-onscroll">
+                            <a href="#" class="button big button-arrow-before">Prev project</a>
+                        </div>
+                        
+                        <div class="col-lg-4 col-md-4 col-sm-4 align-center animate-onscroll">
+                            <a href="#" class="button big">All projects</a>
+                        </div>
+                        
+                        <div class="col-lg-4 col-md-4 col-sm-4 align-right animate-onscroll">
+                            <a href="#" class="button big button-arrow">Next project</a>
+                        </div>
+                        
+                    </div>
+                    
+                    
+                </div>
+                
+                
+                
+            
+            </div>
+            
+        </section>
+        <!-- /Section -->
+    
+    </section>
+
+</div>
+{% endblock content %}

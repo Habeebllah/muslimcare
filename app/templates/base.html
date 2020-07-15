@@ -1,0 +1,298 @@
+{% load static %}
+<!DOCTYPE html>
+
+<html>
+
+	<head>
+		
+		<!-- Meta Tags -->
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		
+		<!-- Title -->
+		<title>{% block title %}Muslim Care Centre{% endblock title %} </title>
+		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+<script type="text/javascript" src="{% static "ckeditor/ckeditor-init.js" %}"></script>
+<script type="text/javascript" src="{% static "ckeditor/ckeditor/ckeditor.js" %}"></script>
+		<!-- Google Fonts -->
+		<link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+		<link href='http://fonts.googleapis.com/css?family=Great+Vibes' rel='stylesheet' type='text/css'>
+		
+		<!-- Favicon -->
+		<link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico">
+		
+		<!-- Stylesheets -->
+		<link href="{% static 'app/css/bootstrap.min.css' %}" rel="stylesheet" type="text/css">
+		<link href="{% static 'app/css/fontello.css' %}" rel="stylesheet" type="text/css">
+		<link href="{% static 'app/css/flexslider.css' %}" rel="stylesheet" type="text/css">
+		<link href="{% static 'app/js/revolution-slider/css/settings.css' %}" rel="stylesheet" type="text/css" media="screen" />
+		<link href="{% static 'app/css/owl.carousel.css' %}" rel="stylesheet" type="text/css">
+		<link href="{% static 'app/css/responsive-calendar.css' %}" rel="stylesheet" type="text/css">
+		<link href="{% static 'app/css/chosen.css' %}" rel="stylesheet" type="text/css">
+		<link href="{% static 'app/jackbox/css/jackbox.min.css' %}" rel="stylesheet" type="text/css" />
+		<link href="{% static 'app/css/cloud-zoom.css' %}" rel="stylesheet" type="text/css" />
+		<link href="{% static 'app/css/style.css' %}" rel="stylesheet" type="text/css">
+
+		
+		<!--[if IE 9]>
+			<link rel="stylesheet" href="css/ie9.css">
+		<![endif]-->
+		
+		<!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+			<link href="css/jackbox-ie8.css" rel="stylesheet" type="text/css" />
+			<link rel="stylesheet" href="css/ie.css">
+        <![endif]-->
+		
+		<!--[if gt IE 8]>
+			<link href="css/jackbox-ie9.css" rel="stylesheet" type="text/css" />
+		<![endif]-->
+		
+		<!--[if IE 7]>
+			<link rel="stylesheet" href="css/fontello-ie7.css">
+		<![endif]-->
+		
+		<style type="text/css">
+			.no-fouc {display:none;}
+	  	</style>
+		
+		<!-- jQuery -->
+		<script src="{% static 'app/js/jquery-1.11.0.min.js' %}"></script>
+		<script src="{% static 'app/js/jquery-ui-1.10.4.min.js' %}"></script>
+		
+		<!-- Preloader -->
+		<script src="{% static 'app/js/jquery.queryloader2.min.js' %}"></script>
+		
+		<script type="text/javascript">
+		$('html').addClass('no-fouc');
+		
+		$(document).ready(function(){
+			
+			$('html').show();
+			
+			var window_w = $(window).width();
+			var window_h = $(window).height();
+			var window_s = $(window).scrollTop();
+			
+			$("body").queryLoader2({
+				backgroundColor: '#f2f4f9',
+				barColor: '#63b2f5',
+				barHeight: 4,
+				percentage:false,
+				deepSearch:true,
+				minimumTime:1000,
+				onComplete: function(){
+					
+					$('.animate-onscroll').filter(function(index){
+					
+						return this.offsetTop < (window_s + window_h);
+						
+					}).each(function(index, value){
+						
+						var el = $(this);
+						var el_y = $(this).offset().top;
+						
+						if((window_s) > el_y){
+							$(el).addClass('animated fadeInDown').removeClass('animate-onscroll');
+							setTimeout(function(){
+								$(el).css('opacity','1').removeClass('animated fadeInDown');
+							},2000);
+						}
+						
+					});
+					
+				}
+			});
+			
+		});
+		</script>
+		
+	</head>
+	
+	<body class="sticky-header-on tablet-sticky-header">
+	
+	<div id="fb-root"></div>
+	<script>(function(d, s, id) {
+	  var js, fjs = d.getElementsByTagName(s)[0];
+	  if (d.getElementById(id)) return;
+	  js = d.createElement(s); js.id = id;
+	  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
+	  fjs.parentNode.insertBefore(js, fjs);
+	}(document, 'script', 'facebook-jssdk'));</script>		
+
+{% block content %}
+
+{% endblock content %}
+<!-- Footer -->
+		<footer id="footer">
+			
+			<div class="container">
+				
+				<!-- Main Footer -->
+				<div id="main-footer">
+					
+					<div class="row">
+						
+						<div class="col-lg-3 col-md-3 col-sm-6 animate-onscroll">
+							
+							<h4>{{footertexts.heading}}</h4>
+							
+							<p>{{footertexts.content|safe}}</p>
+							
+						</div>
+						
+						<div class="col-lg-3 col-md-3 col-sm-6 animate-onscroll">
+							
+							<h4>PAGES</h4>
+								
+							<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 menu-container">
+								
+								<ul class="menu">
+									<li><a href="{% url 'about' %}">About</a></li>
+									<li><a href="{% url 'news' %}">News</a></li> 
+									<li><a href="{% url 'viewevents' %}">Events</a></li>
+									<li><a href="{% url 'contact' %}">Contact us</a></li>
+								</ul>
+								
+							</div>
+							
+							<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 menu-container">
+								
+								<ul class="menu">
+									<li><a href="{% url 'volunteer' %}">Volunteer</a></li>
+									<li><a href="{% url 'sharestory' %}">Share Story</a></li>
+									<li><a href="{% url 'donate' %}">Donate</a></li>
+									<li><a href="{% url 'reporter' %}">Reporter</a></li> 
+									
+								</ul>
+								
+							</div>
+							
+						</div>
+						
+						<div class="col-lg-3 col-md-3 col-sm-6 twitter-widget-area animate-onscroll">
+							
+							<h4>Latest Tweets</h4>
+							
+							<div class="twitter-widget">
+	                            
+							</div>
+							
+							<a href="#" class="button twitter-button">Follow us on twitter</a>
+							
+						</div>
+						
+						<div class="col-lg-3 col-md-3 col-sm-6 animate-onscroll">
+							
+							<h4>Like us on facebook</h4>
+							
+							<iframe src="//www.facebook.com/plugins/likebox.php?href=http%3A%2F%2Fwww.facebook.com%2FFacebookDevelopers&amp;width=270&amp;height=240&amp;colorscheme=dark&amp;header=false&amp;show_faces=true&amp;stream=false&amp;show_border=false" style="border:none; overflow:hidden; width:100%; height:240px;"></iframe>
+							
+						</div>
+						
+					</div>
+					
+				</div>
+				<!-- /Main Footer -->
+				
+				<!-- Lower Footer -->
+				<div id="lower-footer">
+					
+					<div class="row">
+						
+						<div class="col-lg-8 col-md-8 col-sm-8 animate-onscroll">
+						
+							<p class="copyright">Designed by Couone Technology Limited © {% now "Y" %} Muslim Care Centre. All Rights Reserved.</p>
+						</div>
+						
+						<div class="col-lg-4 col-md-4 col-sm-4 animate-onscroll">
+							
+							<div class="social-media">
+								<ul class="social-icons">
+									<li class="facebook"><a href="https://web.facebook.com/muslimcareng/" class="tooltip-ontop" title="Facebook"><i class="icons icon-facebook"></i></a></li>
+									<li class="twitter"><a href="https://twitter.com/muslimcareng" class="tooltip-ontop" title="Twitter"><i class="icons icon-twitter"></i></a></li>
+									{% comment %} <li class="google"><a href="#" class="tooltip-ontop" title="Google Plus"><i class="icons icon-gplus"></i></a></li> {% endcomment %}
+									<li class="youtube"><a href="#" class="tooltip-ontop" title="Youtube"><i class="icons icon-youtube-1"></i></a></li>
+									{% comment %} <li class="flickr"><a href="#" class="tooltip-ontop" title="Flickr"><img src="data:image/png;base64,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"></i></a></li> {% endcomment %}
+									<li class="email"><a href="#" class="tooltip-ontop" title="Email"><i class="icons icon-mail"></i></a></li>
+									<li class="instagram"><a href="#" class="tooltip-ontop" title="" data-original-title="Instagram"><i class="icons icon-instagram"></i></a></li>
+								</ul>
+							</div>
+							
+						</div>
+						
+					</div>
+					
+				</div>
+				<!-- /Lower Footer -->
+
+			</div>
+			
+		
+		</footer>
+		<!-- /Footer -->
+		
+			
+		<!-- Back To Top -->
+		<a href="#" id="button-to-top"><i class="icons icon-up-dir"></i></a>
+
+		<!-- /Container -->	
+	
+		<!-- JavaScript -->
+		
+		<!-- Bootstrap -->
+		<script type="text/javascript" src="{% static 'app/js/bootstrap.min.js' %}"></script>
+		
+		<!-- Modernizr -->
+		<script type="text/javascript" src="{% static 'app/js/modernizr.js' %}"></script>
+		
+		<!-- Sliders/Carousels -->
+		<script type="text/javascript" src="{% static 'app/js/jquery.flexslider-min.js' %}"></script>
+		<script type="text/javascript" src="{% static 'app/js/owl.carousel.min.js' %}"></script>
+		
+		<!-- Revolution Slider  -->
+		<script type="text/javascript" src="{% static 'app/js/revolution-slider/js/jquery.themepunch.plugins.min.js' %}"></script>
+		<script type="text/javascript" src="{% static 'app/js/revolution-slider/js/jquery.themepunch.revolution.min.js' %}"></script>
+		
+		<!-- Calendar -->
+		<script type="text/javascript" src="{% static 'app/js/responsive-calendar.min.js' %}"></script>
+		
+		<!-- Raty -->
+		<script type="text/javascript" src="{% static 'app/js/jquery.raty.min.js' %}"></script>
+		
+		<!-- Chosen -->
+		<script type="text/javascript" src="{% static 'app/js/chosen.jquery.min.js' %}"></script>
+		
+		<!-- jFlickrFeed -->
+		<script type="text/javascript" src="{% static 'app/js/jflickrfeed.min.js' %}"></script>
+		
+		<!-- InstaFeed -->
+		<script type="text/javascript" src="{% static 'app/js/instafeed.min.js' %}"></script>
+		
+		<!-- Twitter -->
+		<script type="text/javascript" src="{% static 'app/php/twitter/jquery.tweet.js' %}"></script>
+		
+		<!-- MixItUp -->
+		<script type="text/javascript" src="{% static 'app/js/jquery.mixitup.js' %}"></script>
+		
+		<!-- JackBox -->
+		<script type="text/javascript" src="{% static 'app/jackbox/js/jackbox-packed.min.js' %}"></script>
+		
+		<!-- CloudZoom -->
+		<script type="text/javascript" src="{% static 'app/js/zoomsl-3.0.min.js' %}"></script>
+
+		
+		
+		<!-- Main Script -->
+		<script type="text/javascript" src="{% static 'app/js/script.js' %}"></script>
+		
+		
+		<!--[if lt IE 9]>
+			<script type="text/javascript" src="{% static 'app/js/jquery.placeholder.js"></script>
+			<script type="text/javascript" src="{% static 'app/js/script_ie.js"></script>
+		<![endif]-->
+		
+		
+	</body>
+
+</html>

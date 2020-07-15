@@ -1,0 +1,425 @@
+{% extends 'base.html' %}
+{% block title %}Muslim Care Centre{% endblock title %}
+{% load static %}
+{% load humanize %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+{% include 'menu.html' %}
+
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+<script type="text/javascript" src="{% static "ckeditor/ckeditor-init.js" %}"></script>
+<script type="text/javascript" src="{% static "ckeditor/ckeditor/ckeditor.js" %}"></script>
+<section id="content">
+				
+    <!-- Section -->
+    <section class="section full-width-bg full-width-slider-section">
+        
+        <div class="row">
+        
+            <div class="col-lg-12 col-md-12 col-sm-12">
+                
+                <!-- Revolution Slider -->
+                <div class="tp-banner-container main-revolution">
+                
+                    <span class="Apple-tab-span"></span>
+
+                    <div class="tp-banner full-width-revolution">
+                        
+                        <ul>
+                            {% for posts in frontbanner %}
+                            <li data-transition="papercut" data-slotamount="7">
+                                <img src="{{posts.image.url}}" alt="">
+                                <div class="tp-caption align-center" data-x="center" data-y="135" data-speed="700" data-start="1000" data-easing="easeOutBack"><h4 class="great-vibes">{{posts.firstline}}</h4></div>
+                                <div class="tp-caption align-center" data-x="center" data-y="220" data-speed="500" data-start="1200" data-easing="easeOutBack"><h2>{{posts.secondline}}</h2></div>
+                                <div class="tp-caption align-center" data-x="center" data-y="300" data-speed="300" data-start="1400"><a href="#" class="button big button-arrow">{{posts.button}}</a></div>
+                            </li>
+                            {% endfor %}
+                    
+                        </ul>
+                        
+                    </div>
+                 
+                </div>
+                <!-- /Revolution Slider -->
+                
+            </div>
+            
+            
+            <div class="col-lg-12 col-md-12 col-sm-12">
+                
+                <div class="banners-inline">
+                
+            {% for service in services %}
+                <div class="banner-wrapper">
+                    <a class="banner animate-onscroll">
+                        <h4 style="text-align: center; width: 100%; margin-left: -20px;">{{service.title}}</h4>
+                        <p style="text-align: justify; width: 100%; margin-left: -20px; height: 150px;">{{service.content}}</p>
+                    </a>
+                </div>
+            {% endfor %}
+                				
+                </div>
+                
+            </div>
+        
+        </div>
+        
+    </section>
+    <!-- /Section -->
+    
+    <!-- Section -->
+    <section class="section full-width-bg gray-bg var2">
+        
+        <div class="row">
+                    
+            <div class="col-lg-3 col-md-3 col-sm-12 animate-onscroll">
+                
+                <div class="issue-block" style="height: 450px;">
+                    
+                    <div class="issue-image">
+                        <img src="{{activity.image.url}}" alt="" style="height: 200px;">
+                    </div>
+                    
+                    <div class="issue-content">
+                    
+                        <h2>{{activity.title}}</h2>
+                        <p>{{activity.headline}}</p>
+                        
+                        <a class="button big button-arrow" href="{% url 'activity' %}">Read more</a>
+                    
+                    </div>
+                    
+                </div>
+                
+            </div>
+            
+            <div class="col-lg-3 col-md-3 col-sm-12 animate-onscroll">
+                
+                <div class="issue-block" style="height: 450px;">
+                    
+                    <div class="issue-image">
+                        <img src="{{capacity.image.url}}" alt="" style="height: 200px;">
+                    </div>
+                    
+                    <div class="issue-content">
+                    
+                        <h2>{{capacity.title}}</h2>
+                        <p>{{capacity.headline}}</p>
+                        
+                        <a class="button big button-arrow" href="{% url 'capacity' %}">Read more</a>
+                    
+                    </div>
+                    
+                </div>
+                
+            </div>
+
+            <div class="col-lg-3 col-md-3 col-sm-12 animate-onscroll">
+                
+                <div class="issue-block" style="height: 450px;"> 
+                    
+                    <div class="issue-image">
+                        <img src="{{social.image.url}}" alt="" style="height: 200px;">
+                    </div>
+                    
+                    <div class="issue-content">
+                    
+                        <h2>{{social.title}}</h2>
+                        <p>{{social.headline}}</p>
+                        
+                        <a class="button big button-arrow" href="{% url 'marriageissue' %}">Read more</a>
+                    
+                    </div>
+                    
+                </div>
+                
+            </div>
+
+            <div class="col-lg-3 col-md-3 col-sm-12 animate-onscroll">
+                
+                <div class="issue-block" style="height: 450px;">
+                    
+                    <div class="issue-image">
+                        <img src="{{interest.image.url}}" alt="" style="height: 200px;">
+                    </div>
+                    
+                    <div class="issue-content">
+                    
+                        <h2>{{interest.title}}</h2>
+                        <p>{{interest.headline}}</p>
+                        
+                        <a class="button big button-arrow" href="{% url 'interest' %}">Read more</a>
+                    
+                    </div>
+                    
+                </div>
+                
+            </div>
+            
+        </div>
+        
+    </section>
+    <!-- /Section -->
+
+</section>
+
+    <!-- Banner Rotator -->
+    <div class="banner-rotator full-width-banner animate-onscroll">
+        
+        <div class="flexslider banner-rotator-flexslider">
+            
+            <ul class="slides">
+                {% for posts in advert %}
+                <li style="background: url({{posts.image.url}}) center center no-repeat; background-size:cover; height: 400px; width: auto;">
+                </li>
+                {% endfor%}
+               
+                
+            </ul>
+            
+        </div>
+
+    </div>
+    <!-- /Banner Rotator -->
+
+    <div class="container">
+        
+        <!-- Section -->
+        <section class="section full-width-bg gray-bg var2">
+            
+            <div class="row">
+                <div class="col-sm-6">
+                    
+                    <!-- Owl Carousel -->
+                    <div class="owl-carousel-container">
+                        
+                        <div class="owl-header">
+                            
+                            <h3 class="animate-onscroll">Latest News</h3>
+                            
+                            <div class="carousel-arrows animate-onscroll">
+                                <span class="left-arrow"><i class="icons icon-left-dir"></i></span>
+                                <span class="right-arrow"><i class="icons icon-right-dir"></i></span>
+                            </div>
+                            
+                        </div>
+                        
+                        <div class="owl-carousel" data-max-items="2">
+                            {% for posts in latest_news %}    
+                            <!-- Owl Item -->
+                            <div>
+                                
+                                <!-- Blog Post -->
+                                <div class="blog-post animate-onscroll">
+                                    
+                                    <div class="post-image">
+                                        <img src="{{posts.image.url}}" alt="" style="height: 150px;">
+                                    </div>
+                                    
+                                    <h4 class="post-title"><a href="{% url 'newsdetails' posts.id %}">{{posts.title}}</a></h4>
+                                    
+                                    <div class="post-meta">
+                                        <span>by <a href="{% url 'newsdetails' posts.id %}">{{posts.user.get_full_name}}</a></span>
+                                        <span>{{posts.created_at|naturaltime}}</span>
+                                    </div>
+                                    
+                                    <p style="text-align: justify;">{{posts.content | safe|truncatewords:15}}</p>
+                                    
+                                    <a href="{% url 'newsdetails' posts.id %}" class="button read-more-button big button-arrow">Read More</a>
+                                    
+                                </div>
+                                <!-- /Blog Post -->
+                                
+                            </div>
+                            <!-- /Owl Item -->
+                            {% endfor %}
+                            
+                        
+                        </div>
+                    
+                    </div>
+
+                </div>
+                <div class="col-sm-6">
+
+                    <h3 class="animate-onscroll">Upcoming Events</h3>
+                    <div class="row">
+                        <div class="col-sm-6 animate-onscroll">
+                            <div class="blog-post">
+                                    
+                                <div class="post-image m_bottom_20">
+                                    <img src="{{single_event.image.url}}" alt="{{single_event.event_theme}}">
+                                </div>
+                                
+                                <ul class="upcoming-events var2">
+                        
+                                    <!-- Event -->
+                                    <li>
+                                        <div class="date">
+                                            <span>
+                                                <span class="day"><i class="icons icon-calendar"></i></span>
+                                                <span class="day"><i class="icons icon-clock"></i></span>
+                                            </span>
+                                        </div>
+                                        
+                                        <div class="event-content">
+                                            <h6><a href="{% url 'eventdetails' single_event.id %}">{{single_event.event_theme}}</a></h6>
+                                            <ul class="event-meta">
+                                                <li><i class="icons icon-clock"></i>{{single_event.date_and_time_of_event}}</li>
+                                                <li><i class="icons icon-location"></i> {{single_event.venue }}</li>
+                                            </ul>
+                                        </div>
+                                    </li>
+                                    <!-- /Event -->
+                                
+                                </ul>
+                                
+                            </div>
+                        </div>
+                        <div class="col-sm-6 animate-onscroll">
+                            
+                            <ul class="upcoming-events var2">
+                        {% for events in event %}
+                        {% if events.date_and_time_of_event != single_event.date_and_time_of_event %}
+                                <!-- Event -->
+                                <li>
+                                    <div class="date">
+                                        <span>
+                                            <span class="day"><i class="icons icon-calendar"></i></span>
+                                            <span class="day"><i class="icons icon-clock"></i></span>
+                                        </span>
+                                    </div>
+                                    
+                                    <div class="event-content">
+                                        <h6><a href="{% url 'eventdetails' events.pk %}">{{events.event_theme}}</a></h6>
+                                        <ul class="event-meta">
+                                            <li><i class="icons icon-clock"></i> {{events.date_and_time_of_event}}</li>
+                                            <li><i class="icons icon-location"></i> {{events.venue }}</li>
+                                        </ul>
+                                    </div>
+                                </li>
+                                <!-- /Event -->
+                                {% endif %}
+                        {% endfor %}  
+                             
+                            </ul>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </section>
+
+        <!-- Section -->
+        <section class="section2 full-width-bg">
+            
+            <div class="row">
+                
+                <div class="col-lg-12 col-md-12 col-sm-12">
+                    
+                    <!-- Owl Carousel -->
+                    <div class="owl-carousel-container no-margin-bottom">
+                        
+                        <div class="owl-header">
+                            
+                            <h3 class="animate-onscroll">Our sponsors</h3>
+                            
+                            <div class="carousel-arrows animate-onscroll">
+                                <span class="left-arrow"><i class="icons icon-left-dir"></i></span>
+                                <span class="right-arrow"><i class="icons icon-right-dir"></i></span>
+                            </div>
+                            
+                        </div>
+                        
+                        <div class="owl-carousel" data-max-items="6">
+                            {% for sponsors in sponsor %}  
+                            <!-- Owl Item -->
+                            <div>
+                                
+                                <!-- Brand -->
+                                <div class="animate-onscroll">
+                                    
+                                    <div class="post-image">
+                                        <img src="{{sponsors.image.url}}" alt="" style="align-items: center;">
+                                    </div>
+                                
+                                </div>
+                                <!-- /Blog Post -->
+                                
+                            </div>
+                            <!-- /Owl Item -->
+                            
+                            {% endfor %}
+                        </div>
+                    
+                    </div>
+                    <!-- /Owl Carousel -->						
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- Section -->
+        <section class="section full-width-bg gray-bg var2">
+
+            <div class="row no-margin-bottom">
+                <div class="col-sm-12">
+
+                    <div class="clearfix">
+                        <div class="f-left">
+                            <h3 style="text-align: center;">{{baseword}}</h3>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="col-sm-12">
+                    
+                    <ul id="instagram-feed-2" class="clearfix"></ul>
+
+                </div>
+            </div>
+
+        </section>
+
+        <!-- Section -->
+        <section class="section full-width-bg blue-bg">
+            
+            <div class="row">
+                
+                <div class="col-sm-9">
+                    
+                    
+
+                    <form method="POST" id="newsletter2" enctype="multipart/form-data" novalidate>
+                    {% csrf_token %}
+                        <div class="newsletter-form">
+                            <div class="newsletter-title">
+                                <h5><strong>Sign up</strong> <br> for email updates</h5>
+                            </div>
+                            <div class="newsletter-email">
+                                {{form|crispy}}                            
+                            </div>
+                            <div class="newsletter-submit">
+                                <input type="submit" value="Subscribe">
+                            </div>
+                        </div> 
+                        
+                           
+                    </form>
+                    
+
+                </div>
+                <div class="col-sm-3 clearfix"><a href="#" class="donate-button f-right">Donate Now!</a></div>
+                
+            </div>
+
+        </section>
+
+    </div>
+{% endblock content %}

@@ -1,0 +1,206 @@
+{% load static %}
+<div class="container">
+			
+			<!-- Header -->
+			<header id="header" class="animate-onscroll">
+				<!-- Main Header -->
+				<div id="main-header">
+					<div class="container">
+					<div class="row">
+						<!-- Logo -->
+						<div id="logo" class="col-lg-3 col-md-3 col-sm-3">
+							
+							<a href="{% url 'index' %}"><img src="{{logo.image.url}}"  style="margin-top: -55px; margin-bottom: -25px; width: 180px; height: 130px;" alt="{{logo.name}}"></a>
+							
+						</div>
+						<!-- /Logo -->
+						
+						
+						
+						<!-- Main Quote -->
+						<div class="col-lg-5 col-md-4 col-sm-4">
+							
+							<blockquote style="color: white;">{{top_quote.firstline}}<br>{{top_quote.secondline}}</blockquote>
+							
+						</div>
+						<!-- /Main Quote -->
+						
+						
+						
+						<!-- Newsletter -->
+						<div class="col-lg-4 col-md-5 col-sm-5">
+							
+							<form id="newsletter" action="php/newsletter-form.php" method="POST">
+								
+								<h5><strong>Sign up</strong> for email updates</h5>
+								<div class="newsletter-form">
+								
+									<div class="newsletter-email">
+										<input type="text" name="newsletter-email" placeholder="Email address">
+									</div>
+									
+									<div class="newsletter-zip">
+										<input type="text" name="newsletter-zip" placeholder="Zip code">
+									</div>
+									
+									<div class="newsletter-submit">
+										<input type="submit" value="">
+										<i class="icons icon-right-thin"></i>
+									</div>
+									
+								</div>
+								
+							</form>
+							
+						</div>
+						<!-- /Newsletter -->
+						
+						
+						
+					</div>
+					
+					</div>
+					
+				</div>
+				<!-- /Main Header -->
+				
+				
+				
+				
+				
+				<!-- Lower Header -->
+				<div id="lower-header">
+					
+					<div class="container">
+					
+					<div id="menu-button">
+						<div>
+						<span></span>
+						<span></span>
+						<span></span>
+						</div>
+						<span>Menu</span>
+					</div>
+					
+					<ul id="navigation">
+						
+						<!-- Home -->
+						<li class="home-button current-menu-item">
+						
+							<a href="{% url 'index' %}"><i class="icons icon-home"></i></a>
+							
+						</li>
+						<!-- /Home -->
+						
+						<!-- Pages -->
+						<li >
+						
+							<span>ABOUT</span>
+							
+							<ul>
+							
+								<li><a href="{% url 'about' %}">About MCC</a></li>
+								<li><a href="{% url 'ourfunding' %}">Our Funding</a></li>
+								<li><a href="{% url 'ourproject' %}">Our Projects</a></li>
+								<li><a href="{% url 'contact' %}">Contact</a></li>
+								<li><a href="{% url 'faq' %}">FAQs</a></li>
+								
+							</ul>
+							
+						</li>
+						<!-- /Pages -->
+
+						<!-- Events -->
+						<li >
+						
+							<span>SERVICES</span>
+							
+							<ul>
+							
+								<li><a href="{% url 'socialprotection' %}">Social Protection Programmes</a></li>
+								<li><a href="{% url 'childeducation' %}">Child Education Support</a></li>
+								<li><a href="{% url 'healthpromotion' %}">Health Promotion & Services</a></li>
+								<li><a href="{% url 'leadership' %}">Leadership & Civic Education Programmes</a></li>
+								<li>
+									<span>Marriage Clinic</span>
+									<ul>
+										<li><a href="{% url 'marriageissue' %}">Marriage Checkup</a></li>
+										<li><a href="{% url 'marriagecounseling' %}">Need Marriage Counseling</a></li>
+									</ul>
+								</li>
+								
+							</ul>
+							
+						</li>
+						<!-- /Events -->
+						
+						<!-- Events -->
+						<li >
+						
+							<span><a href="{% url 'news' %}">NEWS</a></span>
+							
+							<ul>
+							{% for category in news_category%}
+								<li><a href="{% url 'newscategory' category.slug %}">{{category.name}}</a></li>
+							{% endfor %}
+															
+							</ul>
+							
+						</li>
+						<!-- /Events -->
+						
+						<!-- Media -->
+						<li >
+						
+							<span>EVENT</span>
+							
+							<ul>
+							
+								<li><a href="{% url 'viewevents' %}">View</a></li>
+								<li><a href="{% url 'event' %}">Post</a></li>
+															
+							</ul>
+							
+						</li>
+						<!-- /Media -->
+						
+					
+						<!-- Features -->
+						<li >
+							<a href="{% url 'store' %}">STORE</a>
+						</li>
+						<!-- /Features -->
+
+						<li >
+						
+							<span>APPLY</span>
+							
+							<ul>
+							
+								<li><a href="{% url 'sharestory' %}">Share Your Story</a></li>
+								<li><a href="{% url 'reporter_signup' %}">Become A Reporter</a></li>
+								<li><a href="{% url 'volunteer' %}">Volunteer</a></li>
+																
+							</ul>
+							
+						</li>
+						
+					
+						<!-- Donate -->
+						<li class="donate-button ">
+							<a href="{% url 'donate' %}">Donate Today</a>
+						</li>
+						<!-- /Donate --> 
+						
+					</ul>
+					
+					</div>
+					
+				</div>
+				<!-- /Lower Header -->
+				
+				
+			</header>
+			<!-- /Header -->
+
+		</div>

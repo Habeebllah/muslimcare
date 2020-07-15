@@ -1,0 +1,40 @@
+{% extends 'logbase.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+		<!-- start: page -->
+		<section class="body-sign">
+			<div class="center-sign">
+				<a href="/" class="logo float-left">
+					<img src="{{logo.image.url}}" height="54" alt="Porto Admin" />
+				</a>
+
+				<div class="panel card-sign">
+					<div class="card-title-sign mt-3 text-right">
+						<h2 class="title text-uppercase font-weight-bold m-0"><i class="fas fa-user mr-1"></i> Sign In</h2>
+					</div>
+					<div class="card-body">
+						<form method="POST" novalidate>
+						 {% csrf_token %}
+                        {% include 'messages.html' %} 
+						{{form|crispy}}
+
+							<div class="row">								
+								<div class="col-sm-12 text-right mb-4">
+									<button type="submit" class="btn btn-lg btn-block btn-primary mt-2">Login</button>
+								</div>
+							</div>
+	
+
+							<p class="text-center">Don't have an account yet? <a href="{% url 'reporter_signup' %}">Sign Up!</a></p>
+
+						</form>
+					</div>
+				</div>
+
+				<p class="text-center text-muted mt-3 mb-3">&copy; Copyright 2020. All Rights Reserved.</p>
+			</div>
+		</section>
+		<!-- end: page -->
+{% endblock content %}
